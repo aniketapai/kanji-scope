@@ -1,5 +1,6 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:kanji_app/learn_kanji_page.dart';
 import 'package:kanji_app/search_page.dart';
 import 'package:kanji_app/settings.page.dart';
 
@@ -19,6 +20,7 @@ class _ConvexBottomBarState extends State<ConvexBottomBar> {
   final List<Widget> _pages = const [
     HomePage(),
     SearchPage(),
+    LearnKanjiPage(),
     SettingsPage(),
   ];
   @override
@@ -34,6 +36,7 @@ class _ConvexBottomBarState extends State<ConvexBottomBar> {
         items: [
           TabItem(icon: Icons.home),
           TabItem(icon: Icons.manage_search),
+          TabItem(icon: Icons.book),
           TabItem(icon: Icons.settings),
         ],
         initialActiveIndex: 0,

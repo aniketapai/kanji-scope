@@ -1,7 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kanji_app/convex_bottom_bar.dart';
 
-void main() {
+import 'auth_gate.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -36,7 +43,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
           toolbarHeight: 0,
         ),
-        body: const ConvexBottomBar(),
+        body: const AuthGate(),
       ),
     );
   }

@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "426066420376",
+    "project_id": "fir-auth-4d081",
+    "storage_bucket": "fir-auth-4d081.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426066420376:android:3890c5471f6b36e958a6ed",
+        "android_client_info": {
+          "package_name": "com.codeist.kanjiscope"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426066420376-pkl63afjb3m2t36u3dbf4mudcqh6j7lu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codeist.kanjiscope",
+            "certificate_hash": "040052dab513cb29c699110178ce5dbce901d2f4"
+          }
+        },
+        {
+          "client_id": "426066420376-5ctuo6av4diru1bn1c0hc4n1h1tsgl41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnGq-GRiSYFCXViONds0Y4HoTuwERYdvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426066420376-5ctuo6av4diru1bn1c0hc4n1h1tsgl41.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "426066420376-oofj7ule6f65h7sgbnmo2t4bqdfcm96o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanjiApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426066420376:android:97a5addd69d9a18858a6ed",
+        "android_client_info": {
+          "package_name": "com.example.kanji_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426066420376-5ctuo6av4diru1bn1c0hc4n1h1tsgl41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnGq-GRiSYFCXViONds0Y4HoTuwERYdvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426066420376-5ctuo6av4diru1bn1c0hc4n1h1tsgl41.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "426066420376-oofj7ule6f65h7sgbnmo2t4bqdfcm96o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kanjiApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

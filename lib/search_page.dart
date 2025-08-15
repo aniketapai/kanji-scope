@@ -70,7 +70,7 @@ class _SearchPageState extends State<SearchPage> {
                 controller: _controller,
                 maxLength: 5,
                 decoration: InputDecoration(
-                  labelText: 'Enter Kanji',
+                  hintText: 'Enter Kanji',
                   border: const OutlineInputBorder(),
                   suffixIcon: _controller.text.isEmpty
                       ? null
