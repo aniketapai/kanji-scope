@@ -1,10 +1,10 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:kanji_app/learn_kanji_page.dart';
-import 'package:kanji_app/search_page.dart';
-import 'package:kanji_app/settings.page.dart';
+import 'package:kanji_app/screens/learn_kanji_page.dart';
+import 'package:kanji_app/screens/search_page.dart';
+import 'package:kanji_app/screens/settings.page.dart';
 
-import 'home_page.dart';
+import '../screens/home_page.dart';
 
 class ConvexBottomBar extends StatefulWidget {
   const ConvexBottomBar({super.key});

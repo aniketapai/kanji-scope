@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'google_auth.dart';
+import '../services/google_auth.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -28,6 +28,7 @@ class SettingsPage extends StatelessWidget {
             // Profile Image
             CircleAvatar(
               radius: 45,
+              backgroundColor: Colors.black54,
               backgroundImage: user?.photoURL != null
                   ? NetworkImage(user!.photoURL!)
                   : const AssetImage("assets/default_avatar.png")

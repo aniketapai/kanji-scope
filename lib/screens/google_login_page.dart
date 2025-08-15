@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'google_auth.dart';
+import '../services/google_auth.dart';
 
 class GoogleLoginPage extends StatefulWidget {
   const GoogleLoginPage({super.key});

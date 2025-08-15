@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'kanji_details_screen.dart';
+import 'kanji_details_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -88,7 +88,9 @@ class _SearchPageState extends State<SearchPage> {
                 onSubmitted: fetchKanji,
               ),
               const SizedBox(height: 20),
-              if (isLoading) const CircularProgressIndicator(),
+              if (isLoading) const CircularProgressIndicator(
+                color: Colors.white,
+              ),
               if (error != null)
                 Text(error!, style: const TextStyle(color: Colors.red)),
               if (kanjiData != null)

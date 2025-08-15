@@ -81,14 +81,17 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.black54,
+        surfaceTintColor: Colors.black87,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            // Kanji Character
             Center(
               child: Container(
+                margin: EdgeInsets.only(top: 20),
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -138,7 +141,7 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
             ),
             const SizedBox(height: 12),
             if (isLoading)
-              const Center(child: CircularProgressIndicator())
+              const Center(child: CircularProgressIndicator(color: Colors.white,))
             else if (exampleWords.isEmpty)
               const Center(child: Text('No examples available'))
             else
