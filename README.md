@@ -6,36 +6,33 @@
 
 ## Overview
 
-**KanjiScope** is a dark-themed Flutter app that helps users explore **Japanese kanji**, their **meanings**, **readings**, and **example words**. Designed for learners, it offers a clean, modern UI with intuitive navigation and a focus on effective kanji study.  
+**KanjiScope** is a dark-themed Flutter app that helps users explore **Japanese kanji** by **JLPT level** or **school grade**.  
+It shows detailed kanji info with **meanings, readings, JLPT/grade level, and example words**.  
+Users can also save kanji to their personal **collection** for quick review.  
 
 ---
 
 ## Features
 
-### Kanji Learning
-- View kanji with **large character display**.  
-- See **meanings**, **kun and on readings**, and **JLPT level**.  
-- Explore **example words** fetched via [KanjiAPI](https://kanjiapi.dev).  
-
-### User Profile
-- Track favorite kanji for quick review.  
-- Clean, dark-themed UI with high contrast text.  
-
-### Search & Discover
-- Search kanji by character or meaning.  
-- Easily access **top JLPT kanji** or recently viewed kanji.  
+- Browse kanji by **JLPT (N5–N1)** or **Grade (1–6, 8)**  
+- Tap a kanji to see:  
+  - Large character display  
+  - Meanings  
+  - Kun & On readings  
+  - JLPT level / Grade  
+- View **example words** (via [KanjiAPI](https://kanjiapi.dev))  
+- Save kanji to a **Hive collection** (favorites)  
+- Clean, **dark-themed UI**  
 
 ---
 
 ## Screenshots
-*(Insert relevant screenshots here)*  
+*(Add screenshots here)*  
 
 ---
 
 ## Tech Stack
-- **Flutter (Dart)** – front-end UI  
-- **HTTP / REST API** – Kanji data fetching  
-- **ThemeData.dark()** – global dark theme  
-- Clean architecture with **StatefulWidgets for dynamic data**  
-
----
+- **Flutter (Dart)**  
+- **HTTP / REST API** (KanjiAPI)  
+- **Hive** (local storage)  
+- **Material Design Dark Theme**  
