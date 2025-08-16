@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:hive/hive.dart';
 
 class KanjiDetailsScreen extends StatefulWidget {
   final Map<String, dynamic> kanjiData;
@@ -38,21 +39,39 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
           isLoading = false;
         });
       } else {
-        setState(() {
-          isLoading = false;
-        });
+        setState(() => isLoading = false);
       }
     } catch (e) {
-      setState(() {
-        isLoading = false;
-      });
+      setState(() => isLoading = false);
+    }
+  }
+
+  /// Save kanji to Hive collections
+  void addToCollection() async {
+    final box = Hive.box('collections');
+    final kanji = widget.kanjiData['kanji'] ?? '';
+
+    if (kanji.isEmpty) return;
+
+    final alreadySaved = box.values.any((item) {
+      final data = Map<String, dynamic>.from(item);
+      return data['kanji'] == kanji;
+    });
+
+    if (!alreadySaved) {
+      await box.add(widget.kanjiData);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Added to collection!')));
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Already in collection')));
     }
   }
 
   Widget buildReadingChips(List<String> readings) {
-    if (readings.isEmpty) {
-      return const Text('N/A');
-    }
+    if (readings.isEmpty) return const Text('N/A');
     return Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -84,6 +103,12 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black54,
         surfaceTintColor: Colors.black87,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.bookmark_add_outlined),
+            onPressed: addToCollection,
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -91,7 +116,7 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
           children: [
             Center(
               child: Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -112,19 +137,17 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
             const SizedBox(height: 24),
             Center(
               child: Text(
-                (widget.kanjiData['meanings'] as List?)
-                        ?.join(', ')
-                        .toLowerCase() ??
-                    'N/A',
+                (widget.kanjiData['meanings'] as List?)?.join(', ') ?? 'N/A',
                 style: const TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 16),
-            Center(child: const Text('Kun readings:')),
+            const Center(child: Text('Kun readings:')),
             const SizedBox(height: 8),
             Center(child: buildReadingChips(kunReadings)),
             const SizedBox(height: 16),
-            Center(child: const Text('On readings:')),
+            const Center(child: Text('On readings:')),
             const SizedBox(height: 8),
             Center(child: buildReadingChips(onReadings)),
             const SizedBox(height: 16),
@@ -134,14 +157,15 @@ class _KanjiDetailsScreenState extends State<KanjiDetailsScreen> {
             const SizedBox(height: 24),
             const Divider(color: Colors.grey, thickness: 1, height: 32),
             const SizedBox(height: 24),
-            // Example Words Section
             const Text(
               'Example Words:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
             if (isLoading)
-              const Center(child: CircularProgressIndicator(color: Colors.white,))
+              const Center(
+                child: CircularProgressIndicator(color: Colors.white),
+              )
             else if (exampleWords.isEmpty)
               const Center(child: Text('No examples available'))
             else

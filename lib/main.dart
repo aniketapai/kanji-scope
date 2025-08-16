@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:kanji_app/services/consts.dart';
 import 'services/auth_gate.dart';
 import 'services/firebase_options.dart';
@@ -11,6 +13,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Gemini.init(apiKey: GEMINI_API_KEY);
+  await Hive.initFlutter();
+  await Hive.openBox('collections');
   runApp(const MyApp());
 }
 
