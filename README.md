@@ -26,11 +26,6 @@ Users can also save kanji to their personal **collection** for quick review.
 
 ---
 
-## Screenshots
-*(Add screenshots here)*  
-
----
-
 ## Tech Stack
 - **Flutter (Dart)**  
 - **HTTP / REST API** (KanjiAPI)  
